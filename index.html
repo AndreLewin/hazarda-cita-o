@@ -15,10 +15,9 @@
     $(document).ready(function () {
         $("#getMessage").on("click", function () {
             $.getJSON("./citaĵoj.json", function(json) {
-                $(".message").html(JSON.stringify(json));
+                randomNumber = Math.floor(Math.random()*json.length);
+                $(".message").html(JSON.stringify(json[randomNumber]));
             });
-
-            // TODO : Elekti hazardan citaĵon
 
             // TODO : Meti la du kampojn en div
 
