@@ -15,17 +15,44 @@
     $(document).ready(function () {
         $("#getMessage").on("click", function () {
             $.getJSON("./citaĵoj.json", function(json) {
+                var html="";
+
                 randomNumber = Math.floor(Math.random()*json.length);
-                $(".message").html(JSON.stringify(json[randomNumber]));
+                citaĵo = json[randomNumber];
+
+                html += "<div class='citaĵo'>";
+                html += "<i>" + citaĵo[0] + "</i><br>";
+                html +=  citaĵo[1] + "<br>";
+
+                $(".message").html(html);
+
+
             });
 
-            // TODO : Meti la du kampojn en div
-
             // TODO : Meti la JS en sia propra dosiero
-
+            // TODO : Proponi fenestron por pepi
             // TODO Eble : Ŝanĝi la fonkoloron iam ajn kiam oni klakas
         });
     });
+
+
+
+/*
+        var html = "";
+        // Only change code below this line.
+        json.forEach(function(val) {
+          var keys = Object.keys(val);
+          html += "<div class = 'cat'>";
+          keys.forEach(function(key) {
+            html += "<strong>" + key + "</strong>: " + val[key] + "<br>";
+          });
+          html += "</div><br>";
+        });
+
+ */
+
+
+
 </script>
 
 <html>
