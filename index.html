@@ -1,80 +1,40 @@
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-<script>
-    $(document).ready(function () {
-        $("#getMessage").on("click", function () {
-            $.getJSON("./citaĵoj.json", function(json) {
-                var html="";
-
-                randomNumber = Math.floor(Math.random()*json.length);
-                citaĵo = json[randomNumber];
-
-                html += "<div class='citaĵo'>";
-                html += "<i>" + citaĵo[0] + "</i><br>";
-                html +=  citaĵo[1] + "<br>";
-
-                $(".message").html(html);
-
-
-            });
-
-            // TODO : Meti la JS en sia propra dosiero
-            // TODO : Proponi fenestron por pepi
-            // TODO Eble : Ŝanĝi la fonkoloron iam ajn kiam oni klakas
-        });
-    });
-
-
-
-/*
-        var html = "";
-        // Only change code below this line.
-        json.forEach(function(val) {
-          var keys = Object.keys(val);
-          html += "<div class = 'cat'>";
-          keys.forEach(function(key) {
-            html += "<strong>" + key + "</strong>: " + val[key] + "<br>";
-          });
-          html += "</div><br>";
-        });
-
- */
-
-
-
-</script>
-
 <html>
-    <div class="container-fluid">
-        <div class="row text-center">
-            <h2>Hazarda Citaĵo</h2>
-        </div>
-        <div class="row text-center">
-            <div class="col-xs-12 well message">
-                La mesaĝo aperos ĉi tie
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <!-- Sintenoj de la butonoj -->
+        <script>
+            $(document).ready(function () {
+                $.getScript('butono_nova_citaĵo.js');
+                $.getScript('butono_pepi_citaĵon.js');
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            <div class="row text-center">
+                <h2>Hazarda Citaĵo</h2>
+            </div>
+            <div class="row text-center">
+                <div class="col-xs-12 well message">
+                    La mesaĝo aperos ĉi tie
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-xs-12">
+                    <button id="novaCitaĵo" class="btn btn-primary">
+                        Nova citaĵo
+                    </button>
+                    <button id="pepiCitaĵon" class="btn btn-primary">
+                        Pepi la citaĵon
+                        <i class="fa fa-twitter"></i>
+                    </button>
+                </div>
             </div>
         </div>
-        <div class="row text-center">
-            <div class="col-xs-12">
-                <button id="getMessage" class="btn btn-primary">
-                    Nova citaĵo
-                </button>
-                <button id="shareMessage" class="btn btn-primary">
-                    Pepi la citaĵon
-                    <i class="fa fa-twitter"></i>
-                </button>
-            </div>
-        </div>
-    </div>
+    </body>
 </html>
